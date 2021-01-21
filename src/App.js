@@ -4,18 +4,18 @@ function App() {
   return (
     <Container>
       <Main>
-        <header>
+        <Header>
           <h1>Create a new repository</h1>
           <p>
             A repository contains all project files, including the revision history. Already have a
             project repository elsewhere?
           </p>
-        </header>
+        </Header>
 
         <Section>
           <div>
             <div>
-              <label>Owner</label>
+              <Label>Owner</Label>
               <div>
                 <img
                   alt=""
@@ -27,7 +27,7 @@ function App() {
               </div>
             </div>
             <div>
-              <label>repository name</label>
+              <Label>repository name</Label>
               <div>
                 <span>scaling-pancake</span>
                 <img
@@ -38,50 +38,53 @@ function App() {
                 />
               </div>
             </div>
-            <p>
-              Great repository names are short and memorable. Need inspiration? How about
-              <strong>literate-octo-succotash</strong>?
-            </p>
+          </div>
 
-            <div>
-              <lable>Description (optional)</lable>
-              <input type="text" />
-            </div>
+          <p>
+            {'Great repository names are short and memorable. Need inspiration? How about '}
+            <strong>literate-octo-succotash</strong>?
+          </p>
+
+          <div>
+            <Label>
+              Description <Span>(optional)</Span>
+            </Label>
+            <input type="text" />
           </div>
         </Section>
 
         <Section>
-          <div>
-            <input type="radio" checked></input>
-            <label>Public</label>
-            <span>Anyone on the internet can see this repository. You choose who can commit.</span>
-          </div>
-          <div>
-            <input type="radio"></input>
-            <label>Add a README file</label>
-            <span>You choose who can see and commit to this repository.</span>
-          </div>
+          <FormSelect>
+            <FormInput type="radio" checked></FormInput>
+            <Label>Public</Label>
+            <Span>Anyone on the internet can see this repository. You choose who can commit.</Span>
+          </FormSelect>
+          <FormSelect>
+            <FormInput type="radio"></FormInput>
+            <Label>Add a README file</Label>
+            <Span>You choose who can see and commit to this repository.</Span>
+          </FormSelect>
         </Section>
 
         <Section>
-          <h3>Initialize this repository with:</h3>
+          <h4>Initialize this repository with:</h4>
           <p>Skip this step if you’re importing an existing repository.</p>
 
-          <div>
-            <input type="checkbox"></input>
-            <label>Add a README file</label>
-            <span>This is where you can write a long description for your project.</span>
-          </div>
-          <div>
-            <input type="checkbox"></input>
-            <label>Add .gitignore</label>
-            <span>Choose which files not to track from a list of templates.</span>
-          </div>
-          <div>
-            <input type="checkbox"></input>
-            <label>Choose a license</label>
-            <span>A license tells others what they can and can't do with your code.</span>
-          </div>
+          <FormSelect>
+            <FormInput type="checkbox"></FormInput>
+            <Label>Add a README file</Label>
+            <Span>This is where you can write a long description for your project.</Span>
+          </FormSelect>
+          <FormSelect>
+            <FormInput type="checkbox"></FormInput>
+            <Label>Add .gitignore</Label>
+            <Span>Choose which files not to track from a list of templates.</Span>
+          </FormSelect>
+          <FormSelect>
+            <FormInput type="checkbox"></FormInput>
+            <Label>Choose a license</Label>
+            <Span>A license tells others what they can and can't do with your code.</Span>
+          </FormSelect>
         </Section>
 
         <Section>
@@ -106,9 +109,53 @@ const Main = styled.main`
   // background-color: #eeeeee;
 `;
 
+const Header = styled.header`
+  h1 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  p {
+    margin-top: -8px;
+    color: #586069;
+  }
+`;
+
 const Section = styled.section`
   margin-bottom: 20px;
   border: 1px solid silver;
   // border-bottom: 1px solid #eaecef;
   // border-bottom: 1px solid white;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+`;
+
+const Label = styled.label`
+  display: block;
+  font-weight: 600;
+`;
+
+const Span = styled.span`
+  color: #586069;
+  font-size: 12px;
+  font-weight: 400;
+`;
+
+const FormSelect = styled.div`
+  margin-top: 0px;
+  margin-bottom: 16px;
+  padding-left: 20px;
+`;
+
+const FormInput = styled.input`
+  float: left;
+  margin: 5px 0 0 -20px;
 `;
