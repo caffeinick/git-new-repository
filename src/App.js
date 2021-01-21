@@ -15,7 +15,7 @@ function App() {
         <Section>
           <OwnerRepoBlock>
             <div>
-              <Label>Owner</Label>
+              <Label marginBottom>Owner</Label>
               <InputSelect>
                 <img
                   alt=""
@@ -28,18 +28,18 @@ function App() {
             </div>
             <Divider>/</Divider>
             <div>
-              <Label>Repository name</Label>
+              <Label marginBottom>Repository name</Label>
               <InputText type="text" />
             </div>
           </OwnerRepoBlock>
 
-          <p>
+          <p style={{ marginBottom: 15 }}>
             {'Great repository names are short and memorable. Need inspiration? How about '}
             <strong>literate-octo-succotash</strong>?
           </p>
 
           <div>
-            <Label>
+            <Label marginBottom>
               Description <Span>(optional)</Span>
             </Label>
             <InputText type="text" fullWidth />
@@ -60,7 +60,7 @@ function App() {
           <InputWrapper>
             <InputRadio type="radio" />
             <LabelGroup>
-              <Label>Add a README file</Label>
+              <Label>Private</Label>
               <Span>You choose who can see and commit to this repository.</Span>
             </LabelGroup>
           </InputWrapper>
@@ -95,7 +95,7 @@ function App() {
           </InputWrapper>
         </Section>
 
-        <Section>
+        <Section noLine>
           <button type="button">Create repository</button>
         </Section>
       </Main>
@@ -118,21 +118,28 @@ const Main = styled.main`
 `;
 
 const Header = styled.header`
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eaecef;
+
   h1 {
-    margin-bottom: 8px;
     font-size: 24px;
     font-weight: 400;
   }
   p {
-    margin-top: -8px;
     color: #586069;
   }
 `;
 
 const Section = styled.section`
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-  border: 1px solid #eaecef;
+  ${({ noLine }) =>
+    !noLine &&
+    css`
+      border-bottom: 1px solid #eaecef;
+    `}
+
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   h4 {
     margin-top: 0;
@@ -148,6 +155,8 @@ const Section = styled.section`
 const OwnerRepoBlock = styled.div`
   display: flex;
   align-items: flex-end;
+  margin-top: 35px;
+  margin-bottom: 10px;
 `;
 
 const Divider = styled.div`
@@ -161,6 +170,12 @@ const LabelGroup = styled.div`
 `;
 
 const Label = styled.label`
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: 6px;
+    `}
+
   display: block;
   font-weight: 600;
 `;
@@ -199,15 +214,18 @@ const InputSelect = styled.div`
 
 const InputText = styled.input`
   ${InputBase}
+  width: 250px;
+
   ${({ fullWidth }) =>
     fullWidth &&
     css`
       width: 100%;
+      margin-bottom: 16px;
     `}
 `;
 
 const InputRadio = styled.input`
-  margin-right: 4px;
+  margin-right: 6px;
   margin-top: 8px;
 `;
 
