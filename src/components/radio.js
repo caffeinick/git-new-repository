@@ -1,9 +1,9 @@
 import { InputWrapper, InputRadio, LabelGroup, Label, Span } from '../atoms';
 
-const Radio = ({ label = '', desc = '', svg: Svg, ...rest }) => {
+const Radio = ({ label = '', desc = '', svg: Svg, onChange, ...rest }) => {
   return (
     <InputWrapper>
-      <InputRadio type="radio" {...rest} />
+      <InputRadio type="radio" onChange={onChange} value={label} {...rest} />
 
       {Svg ? <Svg /> : null}
 

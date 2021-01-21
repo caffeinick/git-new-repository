@@ -149,7 +149,7 @@ const InputWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-const CreateButton = styled.button`
+const Button = styled.button`
   padding: 5px 16px;
   font-weight: 600;
   color: white;
@@ -157,6 +157,10 @@ const CreateButton = styled.button`
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   line-height: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export {
@@ -177,5 +181,5 @@ export {
   InputRadio,
   InputCheckbox,
   InputWrapper,
-  CreateButton,
+  Button,
 };
